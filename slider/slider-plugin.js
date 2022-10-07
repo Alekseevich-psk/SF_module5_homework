@@ -3,12 +3,16 @@ class Slider {
     constructor(name, props) {
         this.nameSlider = name;
         this.activeSlideIndex = 0;
+
         this.btnNext = document.querySelector(props["btnNext"]);
         this.btnPrev = document.querySelector(props["btnPrev"]);
+
         this.autoPlay = props["autoPlay"] || false;
         this.animation = props["animation"] || false;
         this.autoPlayTime = props["autoPlayTime"] || false;
+
         this.btnsSlider = [this.btnNext, this.btnPrev];
+        
         this.init();
     }
 
