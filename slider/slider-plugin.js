@@ -1,5 +1,4 @@
 class Slider {
-
     constructor(name, props) {
         this.nameSlider = name;
         this.activeSlideIndex = 0;
@@ -12,16 +11,18 @@ class Slider {
         this.autoPlayTime = props["autoPlayTime"] || false;
 
         this.btnsSlider = [this.btnNext, this.btnPrev];
-        
+        this.sliderContainer = document.querySelector(this.nameSlider);
+
+        if (this.sliderContainer) {
+            this.sliderWrapper = this.sliderContainer.querySelector(".slider__wrapper");
+            this.slides = this.sliderContainer.querySelectorAll(".slider__slide");
+        }
+
         this.init();
     }
 
     init() {
-        this.sliderContainer = document.querySelector(this.nameSlider);
         if (!this.sliderContainer) return;
-
-        this.sliderWrapper = this.sliderContainer.querySelector(".slider__wrapper");
-        this.slides = this.sliderContainer.querySelectorAll(".slider__slide");
 
         if (this.slides.length) {
             this.slides[this.activeSlideIndex].classList.add("active");
@@ -31,7 +32,7 @@ class Slider {
             this.sliderWrapper.classList.add(this.animation);
         }
 
-        if (this.btnsSlider.length) {
+        if (this.btnsSlider.length && this.slides.length) {
             this.btnsSlider.forEach((el) => {
                 el.addEventListener("click", () => {
                     this.autoPlay = false;
@@ -57,6 +58,7 @@ class Slider {
     }
 
     nextSlide() {
+        if (!this.slides.length) return;
         this.slides[this.activeSlideIndex].classList.remove("active");
 
         if (this.slides.length - 1 === this.activeSlideIndex) {
@@ -70,6 +72,7 @@ class Slider {
     }
 
     prevSlide() {
+        if (!this.slides.length) return;
         this.slides[this.activeSlideIndex].classList.remove("active");
 
         if (this.activeSlideIndex === 0) {
