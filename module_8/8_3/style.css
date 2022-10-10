@@ -1,0 +1,10 @@
+.main__error,
+.main__q-success,
+.main__q-error {
+    padding: 0;
+    border: none;
+}
+
+.main__spinner-border {
+    display: none;
+}
