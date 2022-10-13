@@ -3,15 +3,20 @@
     "version": "1.0.0",
     "description": "SF web development course",
     "scripts": {
-        "test": "jest"
+        "test": "jest",
+        "flow": "flow"
     },
     "author": "art-aim",
     "license": "ISC",
     "devDependencies": {
-        "@babel/core": "^7.10.4",
+        "@babel/cli": "^7.19.3",
+        "@babel/core": "^7.19.3",
         "@babel/preset-env": "^7.10.4",
+        "@babel/preset-flow": "^7.18.6",
         "babel-jest": "^26.1.0",
         "cypress": "^4.10.0",
-        "jest": "^26.1.0"
+        "flow-bin": "^0.189.0",
+        "jest": "^26.1.0",
+        "typescript": "^4.8.4"
     }
 }
